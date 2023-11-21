@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ubteb</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('logo.png'), :rel => 'UBTEB', :type => "image/png", :sizes => "180x180" %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body>
+    <%= render "shared/header" %>
+    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+      <%= render "shared/sidebar" %>
+      <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+        <main>
+          <%= yield %>
+        </main>
+        <%= render "shared/dashboard-footer" %>
+      </div>
+    </div>
+  </body>
+</html>
