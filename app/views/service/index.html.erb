@@ -1,5 +1,13 @@
-<section class="bg-center bg-no-repeat bg-[url('<%= asset_path('banner/contact.jpg') %>')] bg-gray-700 bg-blend-multiply mt-16">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-16 lg:py-16">
+<section class="bg-center bg-gray-700 relative overflow-hidden mt-16">
+  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/service.png') %>" alt="">
+  <div class="absolute inset-0 bg-gray-900/90 mix-blend-multiply"></div>
+  <div class="absolute -left-80 -top-56 transform-gpu blur-3xl" aria-hidden="true">
+    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#2DAB6C] to-[#023D6C] opacity-[0.45]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:transform-gpu md:blur-3xl" aria-hidden="true">
+    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#2DAB6C] to-[#023D6C] opacity-25" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto px-4 py-16 lg:py-16">
     <div class="flex flex-col p-4 leading-normal">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100">donaiApps Services</h5>
     </div>
@@ -7,6 +15,7 @@
 </section>
 <div class="relative isolate -z-10 bg-white">
   <div class="mx-auto w-full max-w-screen-xl p-4 pb-16 sm:mt-16">
+    <% if @services.any? %>
     <div class="bg-white pb-24">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-7xl">
@@ -14,9 +23,10 @@
           <p class="mt-2 text-lg leading-8 text-gray-600">Our approach is centered around understanding your unique business requirements and tailoring our solutions to suit your goals. We leverage the latest technologies, industry best practices, and creative thinking to deliver exceptional results.</p>
         </div>
         <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+          <% @services.each do |s|%>
           <article class="flex flex-col items-start justify-between">
             <div class="relative w-full">
-              <img src="<%= asset_path('service/app.png') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+              <%= image_tag s.image, class:"aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]", alt:s.title if s.image.present? %>
               <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
             </div>
             <div class="max-w-xl">
@@ -24,17 +34,18 @@
                 <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <a href="#">
                     <span class="absolute inset-0"></span>
-                    Web & Mobile Apps
+                    <%= s.title %>
                   </a>
                 </h3>
-                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">From websites, mobile apps to desktop applications, our development team brings ideas to life. We create feature-rich and intuitive apps that meet the needs of modern businesses.</p>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"><%= s.description %></p>
               </div>
             </div>
           </article>
+          <%end%>
 
           <article class="flex flex-col items-start justify-between">
             <div class="relative w-full">
-              <img src="<%= asset_path('service/graphics.png') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+              <img src="<%= asset_path('service/graphics.jpg') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
               <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
             </div>
             <div class="max-w-xl">
@@ -52,7 +63,7 @@
 
           <article class="flex flex-col items-start justify-between">
             <div class="relative w-full">
-              <img src="<%= asset_path('service/seo.png') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+              <img src="<%= asset_path('service/seo.jpg') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
               <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
             </div>
             <div class="max-w-xl">
@@ -67,8 +78,64 @@
               </div>
             </div>
           </article>
+
+          <article class="flex flex-col items-start justify-between">
+            <div class="relative w-full">
+              <img src="<%= asset_path('service/cmss.png') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+              <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+            </div>
+            <div class="max-w-xl">
+              <div class="group relative">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <a href="#">
+                    <span class="absolute inset-0"></span>
+                    CMS
+                  </a>
+                </h3>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Our SEO experts employ data-driven strategies to boost online visibility, increase organic traffic, and help businesses climb the ranks in search engine results.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flex flex-col items-start justify-between">
+            <div class="relative w-full">
+              <img src="<%= asset_path('service/maintenace.webp') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+              <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+            </div>
+            <div class="max-w-xl">
+              <div class="group relative">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <a href="#">
+                    <span class="absolute inset-0"></span>
+                    Maintenance
+                  </a>
+                </h3>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Our SEO experts employ data-driven strategies to boost online visibility, increase organic traffic, and help businesses climb the ranks in search engine results.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="flex flex-col items-start justify-between">
+            <div class="relative w-full">
+              <img src="<%= asset_path('service/digital.jpg') %>" alt="" class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+              <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+            </div>
+            <div class="max-w-xl">
+              <div class="group relative">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                  <a href="#">
+                    <span class="absolute inset-0"></span>
+                    Digital Marketing
+                  </a>
+                </h3>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Our SEO experts employ data-driven strategies to boost online visibility, increase organic traffic, and help businesses climb the ranks in search engine results.</p>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
-    </div>    
+    </div> 
+    <%end%>   
   </div>
 </div>

@@ -1,0 +1,67 @@
+<div id="<%= dom_id inquiry %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Company name:</strong>
+    <%= inquiry.company_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Contact name:</strong>
+    <%= inquiry.contact_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Email:</strong>
+    <%= inquiry.email %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Phone:</strong>
+    <%= inquiry.phone %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Company size:</strong>
+    <%= inquiry.company_size %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Industry:</strong>
+    <%= inquiry.industry %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Services:</strong>
+    <%= inquiry.services_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Budget:</strong>
+    <%= inquiry.budget %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Country:</strong>
+    <%= inquiry.country %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">City:</strong>
+    <%= inquiry.city %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Address:</strong>
+    <%= inquiry.address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">About:</strong>
+    <%= inquiry.about %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this inquiry", inquiry, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this inquiry', edit_inquiry_path(inquiry), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

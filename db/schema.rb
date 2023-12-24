@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_28_114860) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_01_100051) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,9 +57,59 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_114860) do
     t.index ["user_id"], name: "index_email_verification_tokens_on_user_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "company_name"
+    t.string "contact_name"
+    t.string "email"
+    t.string "phone"
+    t.string "company_size"
+    t.string "industry"
+    t.bigint "services_id", null: false
+    t.string "budget"
+    t.string "country"
+    t.string "city"
+    t.string "address"
+    t.text "about"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["services_id"], name: "index_inquiries_on_services_id"
+    t.index ["slug"], name: "index_inquiries_on_slug", unique: true
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "title"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_news_on_slug", unique: true
+  end
+
   create_table "password_reset_tokens", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_password_reset_tokens_on_user_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "title"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_services_on_slug", unique: true
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -71,7 +121,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_114860) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "testmonials", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.string "company"
+    t.text "testmony"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_testmonials_on_slug", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "title"
     t.string "email", null: false
     t.string "password_digest", null: false
     t.boolean "verified", default: false, null: false
@@ -83,6 +147,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_114860) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "email_verification_tokens", "users"
+  add_foreign_key "inquiries", "services", column: "services_id"
   add_foreign_key "password_reset_tokens", "users"
   add_foreign_key "sessions", "users"
 end
