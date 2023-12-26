@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
-  before_action :authenticate
-  layout "admin"
+  # before_action :authenticate
+  # layout "admin"
 
   def new
     @user = User.new
