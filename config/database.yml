@@ -85,6 +85,4 @@ test:
 #
 production:
   <<: *default
-  database: donaiapps_production
-  username: donaiapps
-  password: <%= ENV["donaiapps_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
