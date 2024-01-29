@@ -18,6 +18,10 @@ module ApplicationHelper
             path: dashboard_index_path
           },
           {
+            name: 'Showcase',
+            path: showcases_path
+          },
+          {
             name: 'Testmonials',
             path: testmonials_path
           },

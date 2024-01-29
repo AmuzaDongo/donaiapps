@@ -1,0 +1,10 @@
+<% content_for :page_title, @showcase.caption %>
+<div class="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
+
+  <%= render "form", showcase: @showcase %>
+
+  <%= link_to "Show this showcase", @showcase, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back to showcase", showcase_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+</div>
+

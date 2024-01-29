@@ -1,0 +1,27 @@
+<div id="<%= dom_id showcase %>">
+  <p class="my-5 flex flex-row">
+    <strong class="block font-medium mb-1">Project Name: </strong>
+    <span class="px-10"> <%= showcase.caption %></span>
+  </p>
+
+  <p class="my-5 flex flex-row">
+    <strong class="block font-medium mb-1">Domain:</strong>
+    <span class="px-10"></span><%= showcase.domain %></span>
+  </p>
+
+  <p class="my-5 flex flex-row">
+    <strong class="block font-medium mb-1">Status:</strong>
+    <span class="px-10"></span><%= showcase.status %></span>
+  </p>
+
+  <p class="my-5  flex flex-row">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <span class="px-10"></span><%= showcase.description %></span>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this showcase", showcase, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this showcase", edit_showcase_path(showcase), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

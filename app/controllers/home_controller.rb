@@ -2,6 +2,7 @@ class HomeController < DonaiappsController
   def index
     @services = Service.published
     @news = News.published
+    @showcases = Showcase.published
     @testmonials = Testmonial.all
   end
 
