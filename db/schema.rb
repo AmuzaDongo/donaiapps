@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_13_195449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,25 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
     t.index ["user_id"], name: "index_email_verification_tokens_on_user_id"
   end
 
+  create_table "episodes", force: :cascade do |t|
+    t.string "title"
+    t.string "youtube_id"
+    t.integer "status", default: 0
+    t.text "description"
+    t.bigint "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_episodes_on_service_id"
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string "name"
+    t.bigint "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_features_on_service_id"
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -92,10 +111,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
   create_table "news", force: :cascade do |t|
     t.string "title"
     t.integer "status", default: 0
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_news_on_slug", unique: true
+    t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "password_reset_tokens", force: :cascade do |t|
@@ -106,10 +127,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.integer "status", default: 0
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_services_on_slug", unique: true
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -125,10 +148,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
     t.string "caption"
     t.text "domain"
     t.integer "status", default: 0
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_showcases_on_slug", unique: true
+    t.index ["user_id"], name: "index_showcases_on_user_id"
   end
 
   create_table "testmonials", force: :cascade do |t|
@@ -137,16 +162,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
     t.string "company"
     t.text "testmony"
     t.integer "status", default: 0
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_testmonials_on_slug", unique: true
+    t.index ["user_id"], name: "index_testmonials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "title"
     t.string "email", null: false
+    t.string "contact"
     t.string "password_digest", null: false
     t.boolean "verified", default: false, null: false
     t.datetime "created_at", null: false
@@ -157,7 +185,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_29_155341) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "email_verification_tokens", "users"
+  add_foreign_key "episodes", "services"
+  add_foreign_key "features", "services"
   add_foreign_key "inquiries", "services", column: "services_id"
+  add_foreign_key "news", "users"
   add_foreign_key "password_reset_tokens", "users"
+  add_foreign_key "services", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "showcases", "users"
+  add_foreign_key "testmonials", "users"
 end

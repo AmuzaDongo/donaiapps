@@ -5,6 +5,10 @@ class Service < ApplicationRecord
     validates :title, presence: true
     validates :status, presence: true
 
+    belongs_to :user
+    has_many :features
+    has_many :episodes
+
     enum status: {
         draft: 0, published: 1, archived: 2
     }

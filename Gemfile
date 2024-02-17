@@ -79,13 +79,12 @@ gem "authentication-zero", "~> 2.16"
 gem "bcrypt", "~> 3.1.7"
 
 gem "tailwindcss-rails", "~> 2.0"
-
+gem "breadcrumbs_on_rails"
 gem "countries", "~> 5.7"
 gem 'country_select', '~> 8.0'
-
 gem "noticed", "~> 1.6"
-
 gem 'friendly_id', '~> 5.4.0'
+gem 'mailtrap'
 
 gem 'capistrano', '~> 3.11'
 gem 'capistrano-rails', '~> 1.4'

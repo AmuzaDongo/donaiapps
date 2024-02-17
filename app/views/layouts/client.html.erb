@@ -11,12 +11,14 @@
     <%= favicon_link_tag asset_path('favicon.ico'), :rel => 'donaiApps', :type => "image/png", :sizes => "180x180" %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "actiontext", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
 
     <%#= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body id="top" class="scroll-smooth">
     <%= render "shared/client-header" %>
       <div class="bg-white">
         <main class="relative isolate">

@@ -1,18 +1,25 @@
-<section class="bg-center bg-gray-700 relative overflow-hidden mt-16">
-  <img class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0" src="<%= asset_path('banner/contact.jpg') %>" alt="">
-  <div class="absolute inset-0 bg-gray-900/90 mix-blend-multiply"></div>
-  <div class="absolute -left-80 -top-56 transform-gpu blur-3xl" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#2DAB6C] to-[#023D6C] opacity-[0.45]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:transform-gpu md:blur-3xl" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#2DAB6C] to-[#023D6C] opacity-25" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto px-4 py-16 lg:py-16">
-    <div class="flex flex-col p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100">Contact Us</h5>
+<section class="bg-center flex justify-between items-center bg-gray-700 relative overflow-hidden mt-16">
+  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/banner1.png') %>" alt="">
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-24 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal">
+      <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100">Contact Us</h5>
+      <% if breadcrumbs.present? %>
+        <nav class="flex text-white" aria-label="Breadcrumb">
+          <ol role="list" class="flex items-center space-x-4">
+            <%= render_breadcrumbs :tag => :li, :class=>"inline-flex items-center text-gray-700 hover:text-primary-600", :separator => '<svg class="h-5 w-5 flex-shrink-0 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>' %>
+          </ol>
+        </nav>
+      <% end %>
     </div>
   </div>
 </section>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <%= value %>
+  </div>
+<% end %>
 <div class="relative isolate -z-10 pb-20 sm:mt-10 bg-white">
   <div class="mx-auto w-full max-w-screen-xl px-4 sm:mt-10">
     <div class="relative isolate bg-white">
@@ -43,24 +50,25 @@
             </dl>
           </div>
         </div>
-        <form action="#" method="POST" class="mt-16 max-w-full sm:mt-20">
+        
+        <%= form_with scope: :contact, url: contact_index_path, method: :post, local: true, class: "mt-16 max-w-full sm:mt-20" do |form| %>
           <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
               <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">First name</label>
               <div class="mt-2.5">
-                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <%= form.text_field :first_name, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
               </div>
             </div>
             <div>
               <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Last name</label>
               <div class="mt-2.5">
-                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <%= form.text_field :last_name, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
               </div>
             </div>
             <div class="sm:col-span-2">
               <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
               <div class="mt-2.5">
-                <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <%= form.email_field :email, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
               </div>
             </div>
 
@@ -74,14 +82,14 @@
             <div class="sm:col-span-2">
               <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Message</label>
               <div class="mt-2.5">
-                <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                <%= form.text_area :message, class: "block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
               </div>
             </div>
           </div>
           <div class="mt-10">
-            <button type="submit" class="block w-full rounded-md bg-blue-800 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-secondary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">Let's talk</button>
+            <%= form.submit "Let's talk", class: "block w-full rounded-md bg-blue-800 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-secondary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800" %>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

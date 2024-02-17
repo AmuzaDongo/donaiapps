@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
-
+import Plyr from 'plyr';
 export default class extends Controller {
   connect() {
-    this.element.textContent = "Hello World!"
+    const player = new Plyr('#player');
   }
 }

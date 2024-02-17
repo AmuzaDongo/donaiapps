@@ -1,0 +1,86 @@
+<section class="bg-center flex justify-between items-center bg-gray-700 relative overflow-hidden mt-16">
+  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/banner3.png') %>" alt="">
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-24 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal">
+      <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100"><%= @service.title %></h5>
+      <% if breadcrumbs.present? %>
+        <nav class="flex text-white" aria-label="Breadcrumb">
+          <ol role="list" class="flex items-center space-x-4">
+            <%= render_breadcrumbs :tag => :li, :class=>"inline-flex items-center text-gray-700 hover:text-primary-600", :separator => '<svg class="h-5 w-5 flex-shrink-0 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>' %>
+          </ol>
+        </nav>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<div class="bg-white">
+  <div class="pb-8 pt-6 sm:pb-16">
+    <div class="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
+        <div class="lg:col-span-6 lg:col-start-8">
+          <div class="flex justify-start">
+            <h1 class="text-3xl font-bold text-gray-900"><%= @service.title %></h1>
+          </div>
+        </div>
+        <div class="mt-8 lg:col-span-6 lg:col-start-1 lg:row-span-3 lg:row-start-1 lg:mt-0">
+          <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
+              <%= image_tag @service.image, class: "lg:col-span-2 lg:row-span-2 rounded-lg bg-gray-200", alt: @service.title if @service.image.present? %>
+          </div>
+        </div>
+
+        <div class="mt-4 lg:col-span-6">
+          <div class="mt-4">
+            <div class="prose prose-sm mt-4 text-gray-500">
+              <div class="text-lg"><%= @service.description %></div>
+            </div>
+          </div>
+          <% if @features.any? %>
+            <div class="mt-8 border-t border-gray-200 pt-8">
+              <h2 class="text-sm font-bold text-gray-900">key features of <%= @service.title %> as our service</h2>
+  
+              <div class="prose prose-sm mt-4 text-gray-500">
+                <ul role="list">
+                  <% @features.each do |feature|%>
+                  <li><%= feature.name %></li>
+                  <%end%>
+                </ul>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<% if @published_episode %>
+  <div class="relative isolate -z-10 py-10 sm:mt-20 bg-gray-900">
+    <div class="mx-auto w-full max-w-screen-xl p-4">
+      <div class="mx-auto flex max-w-2xl flex-col gap-16 px-6 py-10 sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-16 xl:gap-x-20 xl:px-20">
+        <div class="w-full flex-auto">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl"><%= @published_episode.title %></h2>
+          <p class="mt-6 text-lg leading-8 text-gray-300"><%= @published_episode.description %></p>
+        </div>
+        <div class="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" data-controller="video">
+          <div class="plyr__video-embed relative" data-plyr-embed-id="bTqVqk7FSmY" id="player">
+            <iframe
+              src="https://www.youtube.com/embed/<%= @published_episode.youtube_id %>?origin=https://plyr.io&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1"
+              allowfullscreen
+              allowtransparency
+              allow="autoplay"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl" aria-hidden="true">
+      <div class="aspect-[1318/752] w-[82.375rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
+    </div>
+  </div>
+<%end%>
+
+<section class="bg-white px-6 py-20 sm:py-32">
+  <%= render "home/projectinquiry" %>
+</section> 

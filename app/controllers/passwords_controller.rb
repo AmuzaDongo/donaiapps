@@ -1,5 +1,7 @@
 class PasswordsController < ApplicationController
   before_action :set_user
+  before_action :authenticate
+  layout "admin"
 
   def edit
   end

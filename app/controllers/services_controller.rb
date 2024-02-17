@@ -4,11 +4,13 @@ class ServicesController < ApplicationController
 
   # GET /services or /services.json
   def index
-    @services = Service.all
+    @services = Current.user.services.all
   end
 
   # GET /services/1 or /services/1.json
   def show
+    @features = @service.features.all
+    @episodes = @service.episodes.all
   end
 
   # GET /services/new
@@ -18,11 +20,12 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
+
   end
 
   # POST /services or /services.json
   def create
-    @service = Service.new(service_params)
+    @service = Current.user.services.new(service_params)
 
     respond_to do |format|
       if @service.save
@@ -61,7 +64,7 @@ class ServicesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
-      @service = Service.friendly.find(params[:id])
+      @service = Current.user.services.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

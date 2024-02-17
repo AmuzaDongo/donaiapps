@@ -6,6 +6,9 @@
     "@rails/actiontext": "^7.0.8",
     "esbuild": "^0.19.4",
     "flowbite": "^1.8.1",
+    "plyr": "^3.7.8",
+    "stimulus-carousel": "^5.0.1",
+    "stimulus-scroll-to": "^4.1.0",
     "trix": "^2.0.6"
   },
   "scripts": {

@@ -75,6 +75,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
+    breadcrumbs_on_rails (4.1.0)
+      railties (>= 5.0)
     builder (3.2.4)
     capistrano (3.18.0)
       airbrussh (>= 1.0.0)
@@ -155,6 +157,7 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mailtrap (1.2.2)
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
@@ -277,6 +280,7 @@ DEPENDENCIES
   authentication-zero (~> 2.16)
   bcrypt (~> 3.1.7)
   bootsnap
+  breadcrumbs_on_rails
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.4)
@@ -290,6 +294,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
+  mailtrap
   noticed (~> 1.6)
   pg (~> 1.1)
   puma (~> 5.0)

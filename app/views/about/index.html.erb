@@ -1,73 +1,97 @@
+<section class="bg-center flex justify-between items-center bg-gray-700 relative overflow-hidden mt-16">
+  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/banner4.png') %>" alt="">
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-24 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal">
+      <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100">About Us</h5>
+      <% if breadcrumbs.present? %>
+        <nav class="flex text-white" aria-label="Breadcrumb">
+          <ol role="list" class="flex items-center space-x-4">
+            <%= render_breadcrumbs :tag => :li, :class=>"inline-flex items-center text-gray-700 hover:text-primary-600", :separator => '<svg class="h-5 w-5 flex-shrink-0 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>' %>
+          </ol>
+        </nav>
+      <% end %>
+    </div>
+  </div>
+</section>
 <div class="relative isolate -z-10 overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
-  <div class="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96" aria-hidden="true"></div>
   <div class="mx-auto w-full max-w-screen-xl p-4 py-10 sm:py-16">
     <div class="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-      <h1 class="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto">Discover more about donaiApps.</h1>
+      <div class="mx-auto max-w-2xl text-center lg:text-start">
+        <h2 class="text-base font-semibold leading-7 text-primary-900">About donaiApps</h2>
+        <h1 class="max-w-2xl text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:col-span-2 xl:col-auto gap-y-8 pt-2">Our Expertise and Services</h1>
+      </div>
       <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
         <p class="text-lg leading-8 text-gray-600">At DonaiApps, we are passionate about innovation, driven by technology, and dedicated to empowering businesses with cutting-edge digital solutions. Our journey began with a vision to revolutionize the digital landscape and provide businesses with the tools they need to thrive in the ever-evolving world of technology.</p>
       </div>
-      <img src="<%= asset_path('icon/hire.png') %>" alt="" class="mt-5 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-28">
+      <img src="<%= asset_path('banner/about.png') %>" alt="" class="mt-5 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-5">
     </div>
   </div>
   <div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32"></div>
 </div>
 
-<div class="relative isolate -z-10 mt-16 py-16 sm:mt-20 bg-green-50">
-  <div class="mx-auto w-full max-w-screen-xl p-4 sm:mt-16">
+
+<div class="relative isolate -z-10 py-10 sm:mt-20 bg-gray-900">
+  <div class="mx-auto w-full max-w-screen-xl lg:pb-16 p-4 sm:mt-16">
     <div class="mx-auto max-w-2xl lg:mx-0">
-      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Core Values</h2>
+      <h2 class="text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">Our Core Values</h2>
     </div>
-    <dl class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-gray-300 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
+    <dl class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-8 text-base leading-7 text-white sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-16">
       <div class="relative pl-9">
-        <dt class="inline font-semibold text-gray-600">
+        <dt class="inline font-semibold text-gray-300">
           <svg class="absolute left-1 top-1 h-6 w-6 text-primary-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M4.606 12.97a.75.75 0 01-.134 1.051 2.494 2.494 0 00-.93 2.437 2.494 2.494 0 002.437-.93.75.75 0 111.186.918 3.995 3.995 0 01-4.482 1.332.75.75 0 01-.461-.461 3.994 3.994 0 011.332-4.482.75.75 0 011.052.134z" clip-rule="evenodd" />
             <path fill-rule="evenodd" d="M5.752 12A13.07 13.07 0 008 14.248v4.002c0 .414.336.75.75.75a5 5 0 004.797-6.414 12.984 12.984 0 005.45-10.848.75.75 0 00-.735-.735 12.984 12.984 0 00-10.849 5.45A5 5 0 001 11.25c.001.414.337.75.751.75h4.002zM13 9a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
           </svg>
           Innovation.
         </dt>
-        <dd class="inline text-gray-600">We embrace creativity and continuously strive to push the boundaries of what's possible. Innovation is at the heart of everything we do, and we believe in staying ahead of the curve by adopting the latest technologies and trends.</dd>
+        <dd class="inline text-gray-300">We embrace creativity and continuously strive to push the boundaries of what's possible. Innovation is at the heart of everything we do, and we believe in staying ahead of the curve by adopting the latest technologies and trends.</dd>
       </div>
       <div class="relative pl-9">
-        <dt class="inline font-semibold text-gray-600">
+        <dt class="inline font-semibold text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute left-1 top-1 w-6 h-6 text-primary-900">
             <path fill-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
           </svg>          
           Quality.
         </dt>
-        <dd class="inline text-gray-600">We are committed to excellence and deliver nothing but the highest quality solutions to our clients. Our team of skilled professionals adheres to industry best practices, ensuring that each project is executed with precision and finesse.</dd>
+        <dd class="inline text-gray-300">We are committed to excellence and deliver nothing but the highest quality solutions to our clients. Our team of skilled professionals adheres to industry best practices, ensuring that each project is executed with precision and finesse.</dd>
       </div>
       <div class="relative pl-9">
-        <dt class="inline font-semibold text-gray-600">
+        <dt class="inline font-semibold text-gray-300">
           <svg class="absolute left-1 top-1 h-6 w-6 text-primary-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM6 8a2 2 0 11-4 0 2 2 0 014 0zM1.49 15.326a.78.78 0 01-.358-.442 3 3 0 014.308-3.516 6.484 6.484 0 00-1.905 3.959c-.023.222-.014.442.025.654a4.97 4.97 0 01-2.07-.655zM16.44 15.98a4.97 4.97 0 002.07-.654.78.78 0 00.357-.442 3 3 0 00-4.308-3.517 6.484 6.484 0 011.907 3.96 2.32 2.32 0 01-.026.654zM18 8a2 2 0 11-4 0 2 2 0 014 0zM5.304 16.19a.844.844 0 01-.277-.71 5 5 0 019.947 0 .843.843 0 01-.277.71A6.975 6.975 0 0110 18a6.974 6.974 0 01-4.696-1.81z" />
           </svg>
           Customer-Centricity.
         </dt>
-        <dd class="inline text-gray-600">Our clients are at the center of everything we do. We take the time to understand their unique needs, challenges, and goals, and we tailor our solutions to align perfectly with their vision.</dd>
+        <dd class="inline text-gray-300">Our clients are at the center of everything we do. We take the time to understand their unique needs, challenges, and goals, and we tailor our solutions to align perfectly with their vision.</dd>
       </div>
       <div class="relative pl-9">
-        <dt class="inline font-semibold text-gray-600">
+        <dt class="inline font-semibold text-gray-300">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="absolute left-1 top-1 w-6 h-6 text-primary-900">
             <path d="M10.5 1.875a1.125 1.125 0 012.25 0v8.219c.517.162 1.02.382 1.5.659V3.375a1.125 1.125 0 012.25 0v10.937a4.505 4.505 0 00-3.25 2.373 8.963 8.963 0 014-.935A.75.75 0 0018 15v-2.266a3.368 3.368 0 01.988-2.37 1.125 1.125 0 011.591 1.59 1.118 1.118 0 00-.329.79v3.006h-.005a6 6 0 01-1.752 4.007l-1.736 1.736a6 6 0 01-4.242 1.757H10.5a7.5 7.5 0 01-7.5-7.5V6.375a1.125 1.125 0 012.25 0v5.519c.46-.452.965-.832 1.5-1.141V3.375a1.125 1.125 0 012.25 0v6.526c.495-.1.997-.151 1.5-.151V1.875z" />
           </svg>          
           Collaboration.
         </dt>
-        <dd class="inline text-gray-600">We believe in the power of collaboration and teamwork. Our client partnerships are built on open communication, transparency, and mutual trust, ensuring a seamless and enjoyable working relationship.</dd>
+        <dd class="inline text-gray-300">We believe in the power of collaboration and teamwork. Our client partnerships are built on open communication, transparency, and mutual trust, ensuring a seamless and enjoyable working relationship.</dd>
       </div>
     </dl>
   </div>
+  <div class="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl" aria-hidden="true">
+    <div class="aspect-[1318/752] w-[82.375rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
+  </div>
 </div>
-<div class="mx-auto w-full max-w-screen-xl p-4 sm:mt-28">
+
+<div class="mx-auto w-full max-w-screen-xl p-4 mb-16 sm:mt-28">
   <div class="mx-auto max-w-2xl lg:mx-0">
     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our team</h2>
     <p class="mt-6 text-lg leading-8 text-gray-600">Our team is a diverse and dynamic group of professionals who are passionate about technology and innovation. We value collaboration, creativity, and a commitment to excellence.</p>
   </div>
-  <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
+  <ul role="list" class="mx-auto my-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 xl:grid-cols-4">
     <li>
       <img class="aspect-[14/15] w-full rounded-2xl object-cover" src="<%= asset_path('team/hamuza.png') %>" alt="">
       <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-600">Dongo Amuza</h3>
-      <p class="text-base leading-7 text-gray-500">CEO & Founder</p>
+      <p class="text-base leading-7 text-gray-500">Lead Software Developer & Founder</p>
       <p class="text-sm leading-6 text-gray-600">Kampala, Uganda</p>
     </li>
 
@@ -81,7 +105,7 @@
     <li>
       <img class="aspect-[14/15] w-full rounded-2xl object-cover" src="<%= asset_path('team/david.png') %>" alt="">
       <h3 class="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-600">Ssali David</h3>
-      <p class="text-base leading-7 text-gray-500">Lead Software Developer</p>
+      <p class="text-base leading-7 text-gray-500">Software Developer</p>
       <p class="text-sm leading-6 text-gray-600">Kampala, Uganda</p>
     </li>
     <li>
@@ -93,58 +117,12 @@
   </ul>
 </div>
 
-<div class="relative isolate -z-10 mt-32 py-28 sm:mt-40 bg-gray-900">
-  <div class="mx-auto w-full max-w-screen-xl p-4">
-    <div class="mx-auto flex max-w-2xl flex-col gap-16 bg-white/5 px-6 py-16 ring-1 ring-white/10 sm:rounded-3xl sm:p-8 lg:mx-0 lg:max-w-none lg:flex-row lg:items-center lg:py-20 xl:gap-x-20 xl:px-20">
-      <img class="h-96 w-full flex-none rounded-2xl object-cover shadow-xl lg:aspect-square lg:h-auto lg:max-w-sm" src="<%= asset_path('icon/hire.png') %>" alt="">
-      <div class="w-full flex-auto">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Join our team</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-300">Together, we're shaping the future of technology and empowering businesses to thrive in the digital age. Join us and be a part of something remarkable!</p>
-        <ul role="list" class="mt-10 grid grid-cols-1 gap-x-8 gap-y-3 text-base leading-7 text-white sm:grid-cols-2">
-          <li class="flex gap-x-3">
-            <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-            </svg>
-            Competitive salaries
-          </li>
-          <li class="flex gap-x-3">
-            <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-            </svg>
-            Flexible work hours
-          </li>
-          <li class="flex gap-x-3">
-            <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-            </svg>
-            30 days of paid vacation
-          </li>
-          <li class="flex gap-x-3">
-            <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-            </svg>
-            Annual team retreats
-          </li>
-          <li class="flex gap-x-3">
-            <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-            </svg>
-            Benefits for you and your family
-          </li>
-          <li class="flex gap-x-3">
-            <svg class="h-7 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-            </svg>
-            A great work environment
-          </li>
-        </ul>
-        <div class="mt-10 flex">
-          <!-- <a href="#" class="text-sm font-semibold leading-6 text-primary-900">See our job postings <span aria-hidden="true">&rarr;</span></a> -->
-        </div>
-      </div>
+<section class="bg-fixed bg-cover bg-center relative bg-gray-700 bg-blend-multiply" style='background-image: url("<%= asset_path('banner/banner5.png') %>"); height: 70vh;'>
+  <div class="absolute inset-0 flex items-center justify-center text-white">
+    <div class="mx-auto max-w-2xl py-16 text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Got New Project?</h2>
+      <p class="mt-2 mb-6 text-lg leading-8 text-gray-300">With our expert guidance, we facilitate the growth of your business.</p>
+      <%= link_to inquiry_index_path, class:"text-white bg-blue-800 hover:bg-secondary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-small rounded-full text-sm px-6 py-2 text-center mr-3 md:mr-0" do %>Request a Quote<%end%>
     </div>
   </div>
-  <div class="absolute inset-x-0 -top-16 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl" aria-hidden="true">
-    <div class="aspect-[1318/752] w-[82.375rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
-  </div>
-</div>
+</section>

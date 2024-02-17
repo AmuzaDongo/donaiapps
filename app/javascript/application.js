@@ -5,3 +5,4 @@ import "./controllers"
 import "flowbite/dist/flowbite.turbo.js";
 import "trix"
 import "@rails/actiontext"
+import 'swiper/css/bundle'

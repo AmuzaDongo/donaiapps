@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get  "sign_up", to: "registrations#new"
   post "sign_up", to: "registrations#create"
   resources :showcases
-  resources :services
+  resources :services do
+    resources :features
+    resources :episodes
+  end
   resources :news
   resources :testmonials
   resources :sessions, only: [:index, :show, :destroy]
@@ -19,7 +22,8 @@ Rails.application.routes.draw do
   root "home#index"
   resources :inquiry, only: [:index]
   resources :about, only: [:index]
+  resources :contact, only: [:index, :create]
   resources :service, only: [:index]
-  resources :contact, only: [:index]
+  get 'service/:id', to: 'service#show', as: 'show_service'
   get '/:id', to: 'home#show_news', as: 'show_news'
 end

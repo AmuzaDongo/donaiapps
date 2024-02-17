@@ -3,30 +3,30 @@
     <%= form_with(url: sign_up_path) do |form| %>
     <div class="mt-2 grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-6">
         <div class="py-2 sm:col-span-3">
-          <label for="name" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Employee name</label>
+          <label for="name" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">User Name</label>
           <%= form.text_field :name, value: params[:name], required: true, label: false, autofocus: true, autocomplete: "name", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
         </div>
         <div class="py-2 sm:col-span-3">
-          <label for="title" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Employee title</label>
+          <label for="title" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">User Designation</label>
           <%= form.text_field :title, value: params[:title_hint], required: true, label: false, autofocus: true, autocomplete: "title", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
         </div>
         <div class="py-2 sm:col-span-3">
-          <label for="email" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Employee email</label>
+          <label for="email" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">User Email</label>
           <%= form.email_field :email, value: params[:email_hint], required: true, label: false, autofocus: true, autocomplete: "email", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
         </div>
         <div class="py-2 sm:col-span-3">
-          <label for="contact" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Contact</label>
-          <%= form.text_field :contact, value: params[:contact_hint], required: true, label: false, autofocus: true, autocomplete: "contact", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
+          <label for="contact" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Phone Number</label>
+          <%= form.text_field :contact, value: params[:contact], required: true, label: false, autofocus: true, autocomplete: "contact", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
         </div>
         <div class="py-2 sm:col-span-3">
-          <label for="password" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Your password (6 characters minimum)</label>
+          <label for="password" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">User Password (6 characters minimum)</label>
           <%= form.password_field :password, required: true, autocomplete: "current-password", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
         </div>
         <div class="py-2 sm:col-span-3">
-          <label for="password_confirmation" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">Password Confirmation</label>
+          <label for="password_confirmation" class="block mb-2 text-sm font-small text-gray-900 dark:text-white">User Password Confirmation</label>
           <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password", class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" %>
         </div>
-        <%= form.submit "Sign up", class:"w-full text-white bg-blue-800 hover:bg-secondary-900 focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm px-5 my-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+        <%= form.submit "Create User", class:"w-full text-white bg-blue-800 hover:bg-secondary-900 focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg text-sm px-5 my-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
       </div>
     <% end %>
 </div>

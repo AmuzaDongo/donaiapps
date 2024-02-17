@@ -1,51 +1,43 @@
-<section class="bg-center bg-gray-700 relative overflow-hidden mt-16">
-  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/service.png') %>" alt="">
-  <div class="absolute inset-0 bg-gray-900/90 mix-blend-multiply"></div>
-  <div class="absolute -left-80 -top-56 transform-gpu blur-3xl" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#2DAB6C] to-[#023D6C] opacity-[0.45]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:transform-gpu md:blur-3xl" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#2DAB6C] to-[#023D6C] opacity-25" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="max-w-screen-xl relative flex flex-wrap items-center justify-between mx-auto px-4 py-16 lg:py-16">
-    <div class="flex flex-col p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100">donaiApps Services</h5>
+<section class="bg-center flex justify-between items-center bg-gray-700 relative overflow-hidden mt-16">
+  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/banner3.png') %>" alt="">
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-24 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal">
+      <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100">Services</h5>
+      <% if breadcrumbs.present? %>
+        <nav class="flex text-white" aria-label="Breadcrumb">
+          <ol role="list" class="flex items-center space-x-4">
+            <%= render_breadcrumbs :tag => :li, :class=>"inline-flex items-center text-gray-700 hover:text-primary-600", :separator => '<svg class="h-5 w-5 flex-shrink-0 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>' %>
+          </ol>
+        </nav>
+      <% end %>
     </div>
   </div>
 </section>
-<div class="relative isolate -z-10 bg-white">
-  <div class="mx-auto w-full max-w-screen-xl p-4 pb-16 sm:mt-16">
-    <% if @services.any? %>
-    <div class="bg-white pb-24">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto max-w-7xl">
-          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Explore Our Most Valued Services</h2>
-          <p class="mt-2 text-lg leading-8 text-gray-600">Our approach is centered around understanding your unique business requirements and tailoring our solutions to suit your goals. We leverage the latest technologies, industry best practices, and creative thinking to deliver exceptional results.</p>
-        </div>
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          <% @services.each do |s|%>
-          <article class="flex flex-col items-start justify-between">
-            <div class="relative w-full">
-              <%= image_tag s.image, class:"aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]", alt:s.title if s.image.present? %>
-              <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
-            </div>
-            <div class="max-w-xl">
-              <div class="group relative">
-                <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <a href="#">
-                    <span class="absolute inset-0"></span>
-                    <%= s.title %>
-                  </a>
-                </h3>
-                <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"><%= s.description %></p>
-              </div>
-            </div>
-          </article>
-          <%end%>
 
-        </div>
+<% if @services.any? %>
+<section class="bg-white px-6 py-20 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-base font-semibold leading-7 text-primary-900">Make it Digital & Smart</h2>
+        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What We Offer</p>
       </div>
-    </div> 
-    <%end%>   
-  </div>
-</div>
+      <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+        <dl class="grid max-w-xl grid-cols-1 gap-x-5 gap-y-8 lg:max-w-none lg:grid-cols-3">
+          <% @services.each do |service|%>
+          <div class="w-full flex flex-col justify-center bg-gray-100 p-8">
+            <div class="flex flex-col justify-between items-center font-semibold leading-7 text-gray-900">
+              <%= image_tag service.image, class: "rounded w-20 h-20", alt: service.title if service.image.present? %>
+              <h4><%= link_to show_service_path(service) do%><%= service.title %> <%end%></h4>
+            </div>
+            <dd class="mt-4 text-center flex-col text-base leading-7 text-gray-600">
+              <p class="flex-auto"><%= truncate(service.description.to_plain_text, length:165) %></p>
+            </dd>
+          </div>
+          <%end%>
+        </dl>
+      </div>
+    </div>
+</section>  
+<%end%>

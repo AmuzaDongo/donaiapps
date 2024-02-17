@@ -1,5 +1,6 @@
 class Identity::EmailsController < ApplicationController
   before_action :set_user
+  layout "admin"
 
   def edit
   end

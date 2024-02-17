@@ -3,6 +3,7 @@ class CreateServices < ActiveRecord::Migration[7.0]
     create_table :services do |t|
       t.string :title
       t.integer :status, default: 0
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
