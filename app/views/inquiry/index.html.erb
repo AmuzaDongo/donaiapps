@@ -1,12 +1,22 @@
-<section class="bg-center bg-no-repeat bg-[url('<%= asset_path('banner/contact.jpg') %>')] bg-gray-700 bg-blend-multiply mt-16">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-16 lg:py-16">
-    <div class="flex flex-col p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-100">Request a Quote</h5>
+<section class="bg-center flex justify-between items-center bg-gray-700 relative overflow-hidden mt-16">
+  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/banner6.png') %>" alt="">
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-24 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal">
+      <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100">Request a Quote</h5>
+      <% if breadcrumbs.present? %>
+        <nav class="flex text-white" aria-label="Breadcrumb">
+          <ol role="list" class="flex items-center space-x-4">
+            <%= render_breadcrumbs :tag => :li, :class=>"inline-flex items-center text-gray-700 hover:text-primary-600", :separator => '<svg class="h-5 w-5 flex-shrink-0 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>' %>
+          </ol>
+        </nav>
+      <% end %>
     </div>
   </div>
 </section>
 <div class="relative isolate -z-10 bg-white">
-  <div class="mx-auto w-full max-w-screen-xl p-4 pb-16 sm:mt-16">
+  <div class="mx-auto w-full max-w-screen-lg p-4 pb-16 sm:mt-16">
     <form>
       <div class="space-y-12">
         <div class="border-b border-gray-900/10 pb-16">
@@ -46,10 +56,10 @@
               <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Company Size</label>
               <div class="mt-2">
                 <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
-                  <option>1-10</option>
-                  <option>11-30</option>
-                  <option>31-50</option>
-                  <option>51+</option>
+                  <option value="1-10">1-10</option>
+                  <option value="11-30">11-30</option>
+                  <option value="31-50">31-50</option>
+                  <option value="51+">51+</option>
                 </select>
               </div>
             </div>
@@ -58,10 +68,18 @@
               <label for="industry" class="block text-sm font-medium leading-6 text-gray-900">Select business competition (Industry)</label>
               <div class="mt-2">
                 <select id="industry" name="industry" autocomplete="industry" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
-                  <option>E-commerce</option>
-                  <option>Fintech Industry</option>
-                  <option>Innovate health care</option>
-                  <option>Non-profite</option>
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="Fintech Industry">Fintech Industry</option>
+                  <option value="Education">Education</option>
+                  <option value="Innovate health care">Innovate health care</option>
+                  <option value="Non-profite">Non-profite</option>
+                  <option value="Food and Beverage">Food and Beverage</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Travel and Hospitality">Travel and Hospitality</option>
+                  <option value="Pharmaceuticals and Biotechnology">Pharmaceuticals and Biotechnology</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Telecommunications">Telecommunications</option>
+                  <option value="Finance">Finance</option>
                 </select>
               </div>
             </div>
@@ -70,13 +88,12 @@
               <label for="service" class="block text-sm font-medium leading-6 text-gray-900">Project Budget</label>
               <div class="mt-2">
                 <select id="service" name="service" autocomplete="service" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
-                  <option>Digital Marketing</option>
-                  <option>WebSite Development</option>
-                  <option>Mobile App Development</option>
-                  <option>Graphic Design</option>
-                  <option>Search Engine Optimization (SEO)</option>
-                  <option>CMS</option>
-                  <option>Others</option>
+                  <option value="Digital Marketing">Digital Marketing</option>
+                  <option value="WebSite Development">WebSite Development</option>
+                  <option value="Mobile App Development">Mobile App Development</option>
+                  <option value="Graphic Design">Graphic Design</option>
+                  <option value="Search Engine Optimization (SEO)">Search Engine Optimization (SEO)</option>
+                  <option value="Others">Others</option>
                 </select>
               </div>
             </div>
@@ -85,10 +102,11 @@
               <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
               <div class="mt-2">
                 <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
-                  <option>Uganda</option>
-                  <option>Kenya</option>
-                  <option>Tanzania</option>
-                  <option>Rwanda</option>
+                  <option value="Uganda">Uganda</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Others">Others</option>
                 </select>
               </div>
             </div>
