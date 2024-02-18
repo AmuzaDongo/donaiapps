@@ -1,4 +1,7 @@
 class UserMailer < ApplicationMailer
+  default to: "dongamuza@gmail.com",
+    from: "donaiapps@gmail.com"
+
   def password_reset
     @user = params[:user]
     @signed_id = @user.password_reset_tokens.create.signed_id(expires_in: 20.minutes)
