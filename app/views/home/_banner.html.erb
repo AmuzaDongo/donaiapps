@@ -1,0 +1,16 @@
+<div class="relative isolate pt-10 bg-color-primary text-color-white ">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="mx-auto max-w-7xl px-6 py-16 sm:py-12 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-28">
+    <div class="mx-auto w-full max-w-2xl lg:mx-0 lg:flex-auto sm:order-1">
+      <h1 class="mt-5 max-w-lg text-4xl font-bold tracking-tight sm:text-6xl"><%= @banner.caption %></h1>
+      <p class="mt-6 text-lg leading-8"><%= @banner.description %></p>
+      <div class="my-10 flex items-center gap-x-6">
+        <a href="https://<%= @banner.domain %>" target="_blank" rel="noopener noreferrer" class="text-white btn focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full px-4 py-2.5 text-sm font-semibold text-center mr-3 md:mr-0">View Demo</a>
+      </div>
+    </div>
+    <div class="w-full lg:max-w-lg lg:flex-auto sm:order-2">
+      <%= image_tag @banner.image, class:"mt-10 aspect-[6/5] w-full rounded-2xl object-cover lg:aspect-auto lg:h-[34.5rem] animate" %>
+    </div>
+  </div>
+</div>

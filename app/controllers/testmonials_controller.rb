@@ -5,7 +5,7 @@ class TestmonialsController < ApplicationController
 
   # GET /testmonials or /testmonials.json
   def index
-    @testmonials = Testmonial.all
+    @testmonials = Current.user.testmonials.all
   end
 
   # GET /testmonials/1 or /testmonials/1.json
@@ -24,7 +24,7 @@ class TestmonialsController < ApplicationController
 
   # POST /testmonials or /testmonials.json
   def create
-    @testmonial = Testmonial.new(testmonial_params)
+    @testmonial = Current.user.testmonials.new(testmonial_params)
 
     respond_to do |format|
       if @testmonial.save

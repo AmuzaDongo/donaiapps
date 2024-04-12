@@ -5,7 +5,7 @@ class ShowcasesController < ApplicationController
 
   # GET /showcases or /showcases.json
   def index
-    @showcases = Showcase.all
+    @showcases = Current.user.showcases.all
   end
 
   # GET /showcases/1 or /showcases/1.json
@@ -23,7 +23,7 @@ class ShowcasesController < ApplicationController
 
   # POST /showcases or /showcases.json
   def create
-    @showcase = Showcase.new(showcase_params)
+    @showcase = Current.user.showcases.new(showcase_params)
 
     respond_to do |format|
       if @showcase.save

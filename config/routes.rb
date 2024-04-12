@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :news
   resources :testmonials
+  resources :clients
   resources :sessions, only: [:index, :show, :destroy]
   resource  :password, only: [:edit, :update]
   namespace :identity do
@@ -19,11 +20,13 @@ Rails.application.routes.draw do
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
   resources :dashboard, only: [:index]
+
+
   root "home#index"
-  resources :inquiry, only: [:index]
+  resources :quote, only: [:index, :create]
   resources :about, only: [:index]
   resources :contact, only: [:index, :create]
   resources :service, only: [:index]
   get 'service/:id', to: 'service#show', as: 'show_service'
-  get '/:id', to: 'home#show_news', as: 'show_news'
+  # get '/:id', to: 'home#show_news', as: 'show_news'
 end

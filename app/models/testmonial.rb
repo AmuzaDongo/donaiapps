@@ -1,5 +1,6 @@
 class Testmonial < ApplicationRecord
     has_one_attached :image
+    has_rich_text :testmony
     validates :name, presence: true
     validates :title, presence: true
     validates :company, presence: true
@@ -8,6 +9,8 @@ class Testmonial < ApplicationRecord
     enum status: {
         draft: 0, published: 1, archived: 2
     }
+
+    belongs_to :user
 
     extend FriendlyId
     friendly_id :name, use: :slugged

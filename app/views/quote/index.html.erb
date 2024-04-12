@@ -1,0 +1,174 @@
+<section class="relative isolate flex justify-between items-center mt-16 overflow-hidden bg-color-primary text-color-white ">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-20 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal animate">
+      <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100">Request a Quotation</h5>
+      <% if breadcrumbs.present? %>
+        <nav class="flex text-white" aria-label="Breadcrumb">
+          <ol role="list" class="flex items-center space-x-4">
+            <%= render_breadcrumbs :tag => :li, :class=>"inline-flex items-center text-gray-700 hover:text-primary-600", :separator => '<svg class="h-5 w-5 flex-shrink-0 text-gray-200" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+            </svg>' %>
+          </ol>
+        </nav>
+      <% end %>
+    </div>
+  </div>
+</section>
+<% flash.each do |key, value| %>
+    <div id="alert-3" class="max-w-screen-xl flex items-center p-4 mb-4 mx-auto text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 alert-<%= key %>" role="alert">
+      <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+      </svg>
+      <span class="sr-only">Info</span>
+      <div class="ms-3 text-sm font-medium">
+        <%= value %>
+      </div>
+      <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+        </svg>
+      </button>
+    </div>
+<% end %>
+<div class="relative isolate -z-10 bg-white">
+  <div class="mx-auto w-full max-w-screen-lg p-4 pb-16 sm:mt-16">
+    <form action="<%= quote_index_path(@inquiry) %>" method="POST">
+      <div class="space-y-12">
+        <div class="border-b border-gray-900/10 pb-16">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900">Help us get to realize you a little better</h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600">Ship us a technical challenge and our specialists will put together an evaluation of your task within the shortest feasible time and with the maximum precision.</p>
+
+          <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-3">
+              <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Contact Person Name</label>
+              <div class="mt-2">
+                <input type="text" name="inquiry[contact_name]" id="name" autocomplete="inquiry[contact_name]" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="company_name" class="block text-sm font-medium leading-6 text-gray-900">Company Name</label>
+              <div class="mt-2">
+                <input type="text" name="inquiry[company_name]" id="company_name" autocomplete="company-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Company Email address</label>
+              <div class="mt-2">
+                <input id="email" name="inquiry[email]" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
+              <div class="mt-2">
+                <input id="phone" name="inquiry[phone]" type="text" autocomplete="phone" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="company_size" class="block text-sm font-medium leading-6 text-gray-900">Company Size</label>
+              <div class="mt-2">
+                <select id="company_size" name="inquiry[company_size]" autocomplete="company_size" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+                  <option value="1-10">1-10</option>
+                  <option value="11-30">11-30</option>
+                  <option value="31-50">31-50</option>
+                  <option value="51+">51+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="industry" class="block text-sm font-medium leading-6 text-gray-900">Select business competition (Industry)</label>
+              <div class="mt-2">
+                <select id="industry" name="inquiry[industry]" autocomplete="industry" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="Fintech Industry">Fintech Industry</option>
+                  <option value="Education">Education</option>
+                  <option value="Innovate health care">Innovate health care</option>
+                  <option value="Non-profite">Non-profite</option>
+                  <option value="Food and Beverage">Food and Beverage</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Travel and Hospitality">Travel and Hospitality</option>
+                  <option value="Pharmaceuticals and Biotechnology">Pharmaceuticals and Biotechnology</option>
+                  <option value="Energy">Energy</option>
+                  <option value="Telecommunications">Telecommunications</option>
+                  <option value="Finance">Finance</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sm:col-span-full sm:col-start-1">
+              <label for="service" class="block text-sm font-medium leading-6 text-gray-900">Which Services are you looking for</label>
+              <div class="mt-2">
+                <select id="service_id" name="inquiry[service_id]" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+                  <option value="">Select Service</option>
+                  <% Service.order(:title).each do |service| %>
+                    <option value="<%= service.id %>"><%= service.title %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+
+            <div class="sm:col-span-full sm:col-start-1">
+              <label for="budget" class="block text-sm font-medium leading-6 text-gray-900">What is your expected budget</label>
+              <div class="mt-2">
+                <select id="budget" name="inquiry[budget]" autocomplete="service" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+                  <option value="$0 - $1000">$0 - $1000</option>
+                  <option value="$1000 - $2000">$1000 - $2000</option>
+                  <option value="$2000 - $3000">$2000 - $3000</option>
+                  <option value="$3000 - $4000">$3000 - $4000</option>
+                  <option value="$4000 - $5000">$4000 - $5000</option>
+                  <option value="$3000+">$5000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2 sm:col-start-1">
+              <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+              <div class="mt-2">
+                <select id="country" name="inquiry[country]" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+                  <option value="Uganda">Uganda</option>
+                  <option value="Kenya">Kenya</option>
+                  <option value="Tanzania">Tanzania</option>
+                  <option value="Rwanda">Rwanda</option>
+                  <option value="Others">Others</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="city" class="block text-sm font-medium leading-6 text-gray-900">City</label>
+              <div class="mt-2">
+                <input type="text" name="inquiry[city]" id="city" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
+              <div class="mt-2">
+                <input type="text" name="inquiry[address]" id="address" autocomplete="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6">
+              </div>
+            </div>
+
+            <div class="col-span-full">
+              <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About the Project</label>
+              <div class="mt-2">
+                <textarea id="about" name="inquiry[about]" rows="3" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-800 sm:text-sm sm:leading-6"></textarea>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-gray-600">Write a few sentences about the project you are in need of.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <button type="submit" class="rounded-full bg-blue-800 px-5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-secondary-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Request</button>
+      </div>
+    </form>
+  </div>
+</div>

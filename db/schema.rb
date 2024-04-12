@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_13_195449) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_12_063807) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,31 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_195449) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "clients", force: :cascade do |t|
+    t.string "name"
+    t.string "person"
+    t.string "project"
+    t.text "description"
+    t.string "email"
+    t.string "phone"
+    t.integer "company_size"
+    t.string "industy"
+    t.bigint "service_id", null: false
+    t.bigint "user_id", null: false
+    t.string "country"
+    t.string "city"
+    t.string "address"
+    t.boolean "is_active"
+    t.decimal "amout", precision: 10, scale: 2
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["service_id"], name: "index_clients_on_service_id"
+    t.index ["slug"], name: "index_clients_on_slug", unique: true
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "email_verification_tokens", force: :cascade do |t|
@@ -94,7 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_195449) do
     t.string "phone"
     t.string "company_size"
     t.string "industry"
-    t.bigint "services_id", null: false
+    t.bigint "service_id", null: false
     t.string "budget"
     t.string "country"
     t.string "city"
@@ -104,7 +129,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_195449) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    t.index ["services_id"], name: "index_inquiries_on_services_id"
+    t.index ["service_id"], name: "index_inquiries_on_service_id"
     t.index ["slug"], name: "index_inquiries_on_slug", unique: true
   end
 
@@ -184,10 +209,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_13_195449) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "clients", "services"
+  add_foreign_key "clients", "users"
   add_foreign_key "email_verification_tokens", "users"
   add_foreign_key "episodes", "services"
   add_foreign_key "features", "services"
-  add_foreign_key "inquiries", "services", column: "services_id"
+  add_foreign_key "inquiries", "services"
   add_foreign_key "news", "users"
   add_foreign_key "password_reset_tokens", "users"
   add_foreign_key "services", "users"

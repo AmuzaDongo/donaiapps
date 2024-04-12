@@ -21,4 +21,7 @@ class User < ApplicationRecord
   end
 
   has_many :services
+  has_many :clients
+  has_many :showcases
+  has_many :testmonials
 end

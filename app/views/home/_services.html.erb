@@ -1,6 +1,6 @@
 <% if @services.any? %>
 <section class="bg-white px-6 py-20 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl lg:px-6">
       <div class="mx-auto max-w-2xl lg:text-center">
         <h2 class="text-base font-semibold leading-7 text-primary-900">Make it Digital & Smart</h2>
         <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">What We Offer</p>
@@ -8,7 +8,7 @@
       <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
         <dl class="grid max-w-xl grid-cols-1 gap-x-5 gap-y-8 lg:max-w-none lg:grid-cols-3">
           <% @services.each do |s|%>
-          <div class="w-full flex flex-col justify-center bg-gray-100 p-8">
+          <div class="w-full flex flex-col justify-center bg-gray-100 p-8 animate">
             <div class="flex flex-col justify-between items-center font-semibold leading-7 text-gray-900">
               <%= image_tag s.image, class: "rounded w-20 h-20", alt: s.title if s.image.present? %>
               <h4><%= link_to show_service_path(s) do%><%= s.title %></h4><%end%>

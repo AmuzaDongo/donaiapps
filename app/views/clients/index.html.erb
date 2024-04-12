@@ -1,17 +1,17 @@
-<% content_for :page_title, "Testmonials" %>
+<% content_for :page_title, "Our Clients" %>
 <div class="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
-  <% if @testmonials.any? %>
+  <% if @clients.any? %>
     <div class="px-4 sm:px-6 lg:px-8">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
-          <h1 class="text-base font-semibold leading-6 text-gray-900 sr-only">Testmonials</h1>
+          <h1 class="text-base font-semibold leading-6 text-gray-900 sr-only">Our Clients</h1>
         </div>
         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-          <%= link_to new_testmonial_path, class: "block flex flex-row items-center justify-center rounded-md bg-indigo-600 px-2 py-1 text-center text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
+          <%= link_to new_client_path, class: "block flex flex-row items-center justify-center rounded-md bg-indigo-600 px-2 py-1 text-center text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
             </svg>        
-            Testmonials
+             Client
           <%end%>
         </div>
       </div>
@@ -21,9 +21,10 @@
             <table class="min-w-full border-separate border-spacing-0">
               <thead>
                 <tr>
-                  <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Name</th>
-                  <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Title</th>
-                  <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Company</th>
+                  <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Company Name</th>
+                  <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Project Name</th>
+                  <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">Contact Person</th>
+                  <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Industry</th>
                   <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Status</th>
                   <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-white bg-opacity-75 py-3.5 pl-3 pr-4 backdrop-blur backdrop-filter sm:pr-6 lg:pr-8">
                     Action
@@ -31,22 +32,20 @@
                 </tr>
               </thead>
               <tbody>
-                <% @testmonials.each do |t| %>
+                <% @clients.each do |t| %>
                 <tr>
                   <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8">
                     <div class="flex items-center">
-                      <div class="h-8 w-8 flex-shrink-0">
-                        <%= image_tag t.image, class:"h-8 w-8 rounded-full", alt:t.name if t.image.present? %>
-                      </div>
                       <div class="ml-2">
                         <div class="font-medium text-gray-900"><%= t.name%></div>
                       </div>
                     </div>
                   </td>
-                  <td class="whitespace-nowrap border-b border-gray-200 hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= t.title%></td>
-                  <td class="whitespace-nowrap border-b border-gray-200 hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= t.company%></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= t.project%></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= t.person%></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= t.industy%></td>
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500">
-                    <% if t.status === "published"%>
+                    <% if t.status === "approved"%>
                     <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-100 px-2 py-1 text-xs font-medium text-green-700">
                       <svg class="h-1.5 w-1.5 fill-green-500" viewBox="0 0 6 6" aria-hidden="true">
                         <circle cx="3" cy="3" r="3" />
@@ -71,7 +70,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       </svg>                      
                     <%end%>
-                    <%= link_to edit_testmonial_path(t), class:"block rounded-md bg-secondary-900 px-2 py-1 text-center text-xs font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-900" do %>
+                    <%= link_to edit_client_path(t), class:"block rounded-md bg-secondary-900 px-2 py-1 text-center text-xs font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-900" do %>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                       </svg>                      
@@ -108,7 +107,7 @@
                         </div>
                       </div> 
                     </div>
-                  </td>                 
+                  </td>                   
                 </tr>
                 <%end%>
               </tbody>
@@ -122,14 +121,14 @@
       <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
       </svg>
-      <h3 class="mt-1 text-sm font-semibold text-gray-900">No testmonials</h3>
+      <h3 class="mt-1 text-sm font-semibold text-gray-900">No clients</h3>
       <p class="mt-1 text-sm text-gray-500">Get started by creating a new service.</p>
       <div class="mt-6">
-        <%= link_to new_testmonial_path, class: "inline-flex items-center rounded-md bg-secondary-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-900" do %>
+        <%= link_to new_client_path, class: "inline-flex items-center rounded-md bg-secondary-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-900" do %>
           <svg class="-ml-0.5 mr-1.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
           </svg>
-          New Testmonial
+          New client
         <%end%>
       </div>
     </div> 

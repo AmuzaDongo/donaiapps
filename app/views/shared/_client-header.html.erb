@@ -1,6 +1,6 @@
 <nav class="bg-white border-gray-200 border-b w-full fixed z-20 top-0">
   <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto"
+    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-2 lg:px-0"
   >
     <%= link_to root_path, class: "flex items-center" do %>
       <img
@@ -43,7 +43,7 @@
         <% client_items.each do |item| %>
           <% if item[:active] %>
             <li>
-              <%= link_to item[:path], class: "block font-normal py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-primary-900 md:p-0" do%>
+              <%= link_to item[:path], class: "block font-normal py-2 pl-3 pr-4 text-primary-900 rounded md:bg-transparent md:text-primary-900 md:p-0" do%>
                 <%= item[:name]%>
               <%end%>
             </li>
@@ -55,8 +55,8 @@
             </li>
           <% end %>
         <%end%>
-        <li>
-          <%= link_to sign_in_path, class:"text-white bg-blue-800 hover:bg-secondary-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-small rounded-full text-sm px-4 py-2 text-center mr-3 md:mr-0" do %>Sign In<%end%>
+        <li class="mt-10 lg:mt-0">
+          <%= link_to sign_in_path, class:"text-white btn focus:ring-4 focus:outline-none focus:ring-blue-300 font-small rounded-full text-sm px-4 py-2 text-center mr-3 md:mr-0" do %>Sign In<%end%>
         </li>
       </ul>
     </div>

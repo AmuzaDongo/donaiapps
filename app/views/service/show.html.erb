@@ -1,7 +1,8 @@
-<section class="bg-center flex justify-between items-center bg-gray-700 relative overflow-hidden mt-16">
-  <img class="absolute inset-0 h-full w-full object-cover" src="<%= asset_path('banner/banner3.png') %>" alt="">
-  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-24 lg:py-24">
-    <div class="flex flex-col items-center p-4 leading-normal">
+<section class="relative isolate flex justify-between items-center mt-16 overflow-hidden bg-color-primary text-color-white ">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="max-w-screen-xl relative flex justify-between items-center mx-auto px-4 py-20 lg:py-24">
+    <div class="flex flex-col items-center p-4 leading-normal animate">
       <h5 class="mb-2 text-4xl text-center font-bold tracking-tight text-gray-100"><%= @service.title %></h5>
       <% if breadcrumbs.present? %>
         <nav class="flex text-white" aria-label="Breadcrumb">

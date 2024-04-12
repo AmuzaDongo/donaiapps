@@ -15,7 +15,7 @@ module ApplicationHelper
           },
           {
             name: 'Clients',
-            path: dashboard_index_path
+            path: clients_path
           },
           {
             name: 'Showcase',

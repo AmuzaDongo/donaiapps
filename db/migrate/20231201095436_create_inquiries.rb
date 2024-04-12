@@ -7,7 +7,7 @@ class CreateInquiries < ActiveRecord::Migration[7.0]
       t.string :phone
       t.string :company_size
       t.string :industry
-      t.references :services, null: false, foreign_key: true
+      t.references :service, null: false, foreign_key: true
       t.string :budget
       t.string :country
       t.string :city

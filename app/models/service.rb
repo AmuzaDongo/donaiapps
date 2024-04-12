@@ -6,6 +6,8 @@ class Service < ApplicationRecord
     validates :status, presence: true
 
     belongs_to :user
+    has_many :clients
+    has_many :inquiries
     has_many :features
     has_many :episodes
 
