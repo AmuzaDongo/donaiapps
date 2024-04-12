@@ -50,10 +50,6 @@ trix-editor ol {
   @apply w-80 h-80 bg-primary-900 absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
 }
 
-.parallax {
-  background-image: url("<%= asset_path('banner/banner5.png') %>"); 
-  height: 70vh;
-}
 
 .animate {
   animation: moveup 1s linear forwards;
