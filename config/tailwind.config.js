@@ -22,8 +22,9 @@ module.exports = {
         "color-white": "#fff",
         "color-blob": "#A427DF",
         primary: { "900": "#2DAB6C" },
-        secondary: { "900": "#023D6C"}
-      }
+        secondary: { "900": "#023D6C" }
+      },
+      backgroundColor: theme => theme('colors')
     },
   },
   plugins: [
