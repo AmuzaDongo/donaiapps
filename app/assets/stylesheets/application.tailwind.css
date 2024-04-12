@@ -31,7 +31,7 @@ trix-editor ol {
 }
 
 .btn {
-  @apply bg-primary-900 px-9 py-3 rounded-full capitalize font-bold hover:opacity-80 ease-in duration-200;
+  @apply bg-color-green px-9 py-3 rounded-full capitalize font-bold hover:opacity-80 ease-in duration-200;
 }
 
 .card_btn {
@@ -47,7 +47,7 @@ trix-editor ol {
 }
 
 .blob2 {
-  @apply w-80 h-80 bg-primary-900 absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
+  @apply w-80 h-80 bg-color-green absolute bottom-10 right-0 -z-10 blur-2xl opacity-30 overflow-hidden rounded-full;
 }
 
 
