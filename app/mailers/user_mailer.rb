@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
-  default to: "dongamuza@gmail.com",
-    from: "donaiapps@gmail.com"
+  default to: "info@donaiapps.com",
+    from: "info@donaiapps.com"
 
   def password_reset
     @user = params[:user]

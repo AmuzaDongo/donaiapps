@@ -70,7 +70,7 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :mailtrap
   config.action_mailer.mailtrap_settings = {
-    api_key: "6a88a7741ba29cccf6485ef3feb6af04"
+    api_key: "9f1382b37df3d7385b9b606a352abb1f"
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
